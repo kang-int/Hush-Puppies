@@ -1,7 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const routes = [
+const Home = () => import('views/home/Home')
+const PointMall = () => import('views/point-mall/PointMall')
+const Profile = () => import('views/profile/Profile')
 
+const routes = [
+  {
+    path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
+    component: Home
+  },
+  {
+    path: '/mall',
+    component: PointMall
+  },
+  {
+    path: '/profile',
+    component: Profile
+  },
 ]
 
 const router = createRouter({

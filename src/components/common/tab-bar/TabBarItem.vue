@@ -1,7 +1,7 @@
 <template>
-  <div class="tab-bar-item text-center">
+  <div class="tab-bar-item text-center" @click="itemClick">
     <slot name="icon"></slot>
-    <div class="tab-bar-item-text">
+    <div class="tab-bar-item-text" :style="activeStyle">
       <slot name="text" class="tab-bar-text"></slot>
     </div>
   </div>
@@ -9,7 +9,27 @@
 
 <script>
 export default {
-
+  props: {
+    path: String,
+    // 父组件要传activeColor值
+    activeColor: {
+      type: String,
+      default: '#A52C2B'
+    }
+  },
+  computed: {
+    isActive() {
+      return this.$route.path.indexOf(this.path) !== -1
+    },
+    activeStyle() {
+      return this.isActive ? {color: this.activeColor} : {}
+    }
+  },
+  methods: {
+    itemClick() {
+      this.$router.push(this.path)
+    }
+  }
 }
 </script>
 
