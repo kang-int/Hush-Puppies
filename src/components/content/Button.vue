@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
   button {
-    background: #CB453C;
+    background-color: #CB453C;
     color: #fff;
     font-weight: bold;
     border-radius: 1000px;
