@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const Home = () => import('views/home/Home')
-const PointMall = () => import('views/point-mall/PointMall')
-const Profile = () => import('views/profile/Profile')
+const Home = () => import('views/home')
+const PointMall = () => import('views/point-mall')
+const Profile = () => import('views/profile')
 
 const routes = [
   {

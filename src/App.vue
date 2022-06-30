@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import MainTabBar from 'components/content/MainTabBar'
+import MainTabBar from 'components/MainTabBar'
 export default {
   components: {
     MainTabBar
@@ -18,5 +18,6 @@ export default {
   @import url(assets/css/base.css);
   #container {
     width: 375px;
+    margin: 0 auto;
   }
 </style>

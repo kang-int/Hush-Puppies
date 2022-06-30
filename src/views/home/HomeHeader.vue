@@ -2,30 +2,33 @@
   <div class="header">
     <p class="header-title">暇步士微信步数</p>
     <Canvas></Canvas>
+    <white-building class="building"></white-building>
+    <dark-building class="building"></dark-building>
+    <road></road>
     <aside-info></aside-info>
-    <move-anim class="building-white building"
-    :imgUrl="imgUrl" :imgWidth="imgWidth" :animDuration="animDuration"></move-anim>
 
   </div>
 </template>
 
 <script>
-import Canvas from 'components/content/Canvas'
-import AsideInfo from 'components/content/AsideInfo'
-import MoveAnim from 'components/content/MoveAnim'
+import Canvas from 'components/Canvas'
+import AsideInfo from 'components/AsideInfo'
+import WhiteBuilding from 'components/WhiteBuilding'
+import DarkBuilding from 'components/DarkBuilding'
+import Road from 'components/Road'
 
 export default {
   data() {
     return {
-      imgUrl: 'assets/img/home/rear-building@2x.png',
-      imgWidth: 1145,
-      animDuration: 100
+
     }
   },
   components: {
     Canvas,
     AsideInfo,
-    MoveAnim
+    WhiteBuilding,
+    DarkBuilding,
+    Road
   }
 }
 </script>
@@ -56,7 +59,5 @@ export default {
     bottom: 125px;
     left: 0;
   }
-  .building-white {
-    left: -50%
-  }
+
 </style>

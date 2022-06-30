@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Reward from 'components/content/Reward'
+import Reward from 'components/Reward'
 import LinkMenu from './LinkMenu'
-import Swiper from 'components/common/swiper/Swiper'
+import Swiper from 'components/swiper/Swiper'
 export default {
   components: {
     Reward,

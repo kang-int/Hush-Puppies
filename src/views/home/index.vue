@@ -1,6 +1,7 @@
 <template>
   <home-header></home-header>
   <home-main></home-main>
+  <hot-goods></hot-goods>
   <br>
   <br>
   <br>
@@ -15,12 +16,14 @@
 </template>
 
 <script>
-import HomeHeader from './child-components/HomeHeader'
-import HomeMain from './child-components/HomeMain'
+import HomeHeader from './HomeHeader'
+import HomeMain from './HomeMain'
+import HotGoods from './HotGoods'
 export default {
   components: {
     HomeHeader,
-    HomeMain
+    HomeMain,
+    HotGoods
   }
 }
 </script>
