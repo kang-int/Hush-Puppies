@@ -1,10 +1,26 @@
 <template>
-  <h2>我的</h2>
+  <profile-header>
+    <template v-slot:photo>
+      <img src="~assets/img/profile/profile-photo@2x.png" alt="">
+    </template>
+    <template v-slot:name>
+      神经蛙
+    </template>
+    <template v-slot:id>
+      ID:12312312312
+    </template>
+    <template v-slot:point>
+      <p>2,3123</p>
+    </template>
+  </profile-header>
 </template>
 
 <script>
+import ProfileHeader from './ProfileHeader'
 export default {
-
+  components: {
+    ProfileHeader
+  }
 }
 </script>
 

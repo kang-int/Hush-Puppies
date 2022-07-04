@@ -1,6 +1,7 @@
 <template>
   <div class="tab-bar-item text-center" @click="itemClick">
-    <slot name="icon"></slot>
+    <slot v-if="isActive" name="icon-active"></slot>
+    <slot v-else name="icon"></slot>
     <div class="tab-bar-item-text" :style="activeStyle">
       <slot name="text" class="tab-bar-text"></slot>
     </div>
@@ -35,6 +36,7 @@ export default {
 
 <style>
   .tab-bar-item {
+    cursor: pointer;
     flex: 1;
     font-size: 9px
   }

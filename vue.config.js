@@ -9,6 +9,7 @@ module.exports = defineConfig({
         'network': '@/network',
         'views': '@/views'
       }
-    }
+    },
+    stats: "minimal"
   }
 })

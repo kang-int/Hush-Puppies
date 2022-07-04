@@ -3,7 +3,7 @@
     <div class="item" v-for="item in goods">
         <img :src="item.ThumbUrl" alt="">
         <p class="goods-name">暇步士商品</p>
-        <p class="goods-point">4000积分</p>
+        <p class="goods-point">1000积分</p>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   },
   created() {
     request({
-      url: '/product_f2136da7f25a48358625f7382b703ae6.json'
+      url: '/home_hotGoods.json'
     })
     .then(res => {
       this.goods = res.data;

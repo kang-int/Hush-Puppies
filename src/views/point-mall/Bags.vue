@@ -18,7 +18,7 @@ export default {
   },
   created() {
     request({
-      url: '/product_f2136da7f25a48358625f7382b703ae6.json'
+      url: '/home_hotGoods.json'
     })
     .then(res => {
       this.goods = res.data;

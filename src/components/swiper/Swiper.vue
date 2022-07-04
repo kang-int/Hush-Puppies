@@ -20,10 +20,9 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import 'swiper/css/effect-fade';
 
 // import required modules
-import { Pagination, EffectFade, Autoplay} from "swiper";
+import { Pagination, Autoplay} from "swiper";
 
 export default {
   data() {
@@ -44,8 +43,6 @@ export default {
       for (let i = 0; i < 5; i++) {
         arr.push(res.data[0])
       }
-      // console.log(res);
-      // console.log(arr);
       this.banners = arr;
     })
   },
@@ -58,19 +55,6 @@ export default {
 </script>
 
 <style>
-.swiper {
-  width: 345px;
-  height: 120px;
-  border-radius: 10px;
-  margin: 0 auto;
-  margin-top: 12px;
-}
-
-.swiper img {
-  width: 345px;
-  height: 120px;
-}
-
 .swiper .swiper-pagination-bullet-active {
   background: #000;
   opacity: 1;

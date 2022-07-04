@@ -4,6 +4,9 @@
       <template v-slot:icon>
         <img src="~assets/img/tab-bar/home-icon@2x.png" alt="">
       </template>
+      <template v-slot:icon-active>
+        <img src="~assets/img/tab-bar/home-icon-active@2x.png" alt="">
+      </template>
       <template v-slot:text>
         <div slot="text">首页</div>
       </template>
@@ -12,13 +15,19 @@
       <template v-slot:icon>
         <img src="~assets/img/tab-bar/point-mall-icon@2x.png" alt="">
       </template>
+      <template v-slot:icon-active>
+        <img src="~assets/img/tab-bar/point-mall-icon-active@2x.png" alt="">
+      </template>
       <template v-slot:text>
         <div slot="text">积分商城</div>
       </template>
     </tab-bar-item>
-    <tab-bar-item path="profile">
+    <tab-bar-item path="/profile">
       <template v-slot:icon>
         <img src="~assets/img/tab-bar/profile-icon@2x.png" alt="">
+      </template>
+      <template v-slot:icon-active>
+        <img src="~assets/img/tab-bar/profile-icon-active@2x.png" alt="">
       </template>
       <template v-slot:text>
         <div slot="text">我的</div>
