@@ -3,22 +3,26 @@
   <home-main></home-main>
   <p class="goods-title">热门兑换</p>
   <hot-goods></hot-goods>
+  <div class="placeholder"></div>
+  <main-tab-bar></main-tab-bar>
 </template>
 
 <script>
 import HomeHeader from './HomeHeader'
 import HomeMain from './HomeMain'
 import HotGoods from './HotGoods'
+import MainTabBar from 'components/home/MainTabBar.vue'
 export default {
   components: {
     HomeHeader,
     HomeMain,
-    HotGoods
+    HotGoods,
+    MainTabBar,
   }
 }
 </script>
 
-<style>
+<style scoped>
 .goods-title {
   font-size: 16px;
   font-weight: bold;
@@ -29,5 +33,8 @@ export default {
 }
 .goods-list {
   margin-top: 10px;
+}
+.placeholder {
+  height: 49px;
 }
 </style>

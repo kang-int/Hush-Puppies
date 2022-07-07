@@ -1,13 +1,17 @@
 <template>
   <div class="nav-flex text-center">
-    <div class="nav-bar" @click="itemClick">
-      <div class="nav-bar-item item active" id="All">全部</div>
-      <div class="nav-bar-item item" id="Bags">包配</div>
-      <div class="nav-bar-item item" id="Housewares">家居</div>
-      <div class="nav-bar-item item" id="Shoes">鞋袜</div>
-      <div class="nav-bar-item item" id="Others">其他</div>
+    <div class="nav-bar">
+      <div
+        class="nav-bar-item"
+        v-for="item in navBarItems"
+        :id="item.id"
+        :class="{active: currentTab === item.id}"
+        @click="itemClick"
+      >{{item.title}}</div>
     </div>
-    <div class="item select">按积分
+
+    <div class="nav-bar-item select">
+      按积分
       <img src="~assets/img/point-mall/triangle@2x.png" alt="">
     </div>
   </div>
@@ -15,18 +19,36 @@
 
 <script>
 export default {
-  props: {
-    path: String
+  data() {
+    return {
+      currentTab: 'All',
+      navBarItems: [
+        {
+          id: 'All',
+          title: '全部'
+        },
+        {
+          id: 'Bags',
+          title: '包配'
+        },
+        {
+          id: 'Housewares',
+          title: '家居'
+        },
+        {
+          id: 'Shoes',
+          title: '鞋袜'
+        },
+        {
+          id: 'Others',
+          title: '其他'
+        },
+      ]
+    }
   },
   methods: {
     itemClick(event) {
-      // 动态样式
-      let items = document.querySelectorAll('.nav-bar-item')
-      let len = items.length
-      for (let i = 0; i < len; i++) {
-        items[i].classList.remove('active')
-      }
-      event.target.classList.add('active')
+      this.currentTab = event.target.id
       // 发出toggleComp事件给父组件
       this.$emit('toggleComp', event.target.id)
     }
@@ -39,13 +61,15 @@ export default {
   display: flex;
   cursor: pointer;
 }
+
 .nav-bar {
   width: 255px;
   height: 35px;
   display: flex;
   justify-content: space-between;
 }
-.item {
+
+.nav-bar-item {
   width: 45px;
   height: 35px;
   background-color: #fff;
@@ -56,14 +80,17 @@ export default {
   font-weight: bold;
   color: #333;
 }
+
 .select {
   width: 75px;
   margin-left: 15px;
 }
+
 .select img {
   width: 11px;
   height: 9px;
 }
+
 .active {
   background-color: #CB453C;
   color: #fff;

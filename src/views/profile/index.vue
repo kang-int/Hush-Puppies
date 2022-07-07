@@ -13,13 +13,16 @@
       <p>2,3123</p>
     </template>
   </profile-header>
+  <main-tab-bar></main-tab-bar>
 </template>
 
 <script>
+import MainTabBar from '@/components/home/MainTabBar.vue'
 import ProfileHeader from './ProfileHeader'
 export default {
   components: {
-    ProfileHeader
+    ProfileHeader,
+    MainTabBar
   }
 }
 </script>

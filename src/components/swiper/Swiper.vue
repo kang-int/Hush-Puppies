@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { request } from "network/request.js";
 import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
 import "swiper/css";
@@ -25,26 +24,12 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay} from "swiper";
 
 export default {
-  data() {
-    return {
-      banners: []
-    }
+  props: {
+    banners: Array
   },
   components: {
     Swiper,
     SwiperSlide,
-  },
-  created() {
-    request({
-      url: '/home_banner.json'
-    })
-    .then(res => {
-      const arr = [];
-      for (let i = 0; i < 5; i++) {
-        arr.push(res.data[0])
-      }
-      this.banners = arr;
-    })
   },
   setup() {
     return {

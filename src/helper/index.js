@@ -12,6 +12,6 @@ export const parseHTML = (str) => {
   if (!str) return ''
   str = decodeEmoji(str).replace(/\&lt;/g, '<').replace(/\&gt;/g, '>')
   str = str.replace(/&nbsp;/g, ' ').replace(/\\=\"\"/g, '')
-  str = str.replace(/\<img/g, '< img class="rich-img" mode="aspectFill"')
+  str = str.replace(/\<img/g, '<img class="rich-img"')
   return str
 }

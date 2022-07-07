@@ -10,6 +10,6 @@ module.exports = defineConfig({
         'views': '@/views'
       }
     },
-    stats: "minimal"
+    stats: "errors-warnings"
   }
 })

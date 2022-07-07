@@ -34,13 +34,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .tab-bar-item {
     cursor: pointer;
     flex: 1;
     font-size: 9px
   }
-  .tab-bar-item img {
+  .tab-bar-item :deep(img) {
     width: 22px;
     height: 22px;
   }

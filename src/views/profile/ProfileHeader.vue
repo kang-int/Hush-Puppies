@@ -75,12 +75,16 @@ export default {
   height: 50px;
   border: 2px solid rgba(255,255,255,0.35);
   border-radius: 26px;
-  background: url(assets/img/profile/star-icon@2x.png) no-repeat;
-  background-size: 39px 39px;
-  background-position: left center;
+  background: url(assets/img/profile/star-icon@2x.png) no-repeat,
+              url(assets/img/profile/arrow-icon@2x.png) no-repeat;
+  background-size: 39px 39px, 6px 9px;
+  background-position: 0 5px, 119px center;
   font-size: 17px;
   font-weight: bold;
   color: #fff;
-  padding-left: 48px;
+  padding: 0 34px 0 48px;
+}
+.profile-point p {
+  margin-top: 13px;
 }
 </style>

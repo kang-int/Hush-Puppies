@@ -2,7 +2,7 @@
   <div class="main">
     <Reward></Reward>
     <link-menu></link-menu>
-    <swiper></swiper>
+    <swiper :banners="banners"></swiper>
   </div>
 </template>
 
@@ -10,16 +10,37 @@
 import Reward from 'components/home/Reward'
 import LinkMenu from './LinkMenu'
 import Swiper from 'components/swiper/Swiper'
+import { request } from 'network/request.js'
 export default {
+  data() {
+    return {
+      banners: []
+    }
+  },
   components: {
     Reward,
     LinkMenu,
     Swiper
+  },
+  created() {
+    request({
+      url: '/home_banner.json'
+    }).then(res => {
+      let arr = []
+      let bannerObj = {
+        url: res.data[0].url,
+        img: res.data[0].img
+      }
+      for (let i = 0; i < 5; i++) {
+        arr.push(bannerObj)
+      }
+      this.banners = arr
+    })
   }
 }
 </script>
 
-<style>
+<style scoped>
 .main {
   background-color: #fff;
   padding-bottom: 27px;
@@ -33,7 +54,7 @@ export default {
   margin-top: 12px;
 }
 
-.swiper img {
+.swiper :deep(img) {
   width: 345px;
   height: 120px;
 }
