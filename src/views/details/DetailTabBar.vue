@@ -10,7 +10,7 @@
       <img src="~assets/img/details/share-icon@2x.png" alt="">
       <p>分享</p>
     </div>
-    <Button class="detail-button">立即兑换</Button>
+    <Button class="detail-button" @click="$emit('exchange')">立即兑换</Button>
   </div>
 </template>
 

@@ -2,7 +2,7 @@
   <div class="aside">
     <div class="point-rule-flex">
       <div class="point">
-        <p>2,3123</p>
+        <p>{{totalPoint}}</p>
       </div>
       <div class="rule">
         <a href="">规则</a>
@@ -12,9 +12,6 @@
       <a href="" class="bubble-link1"><img src="~assets/img/home/challenge-bubble2x.png" alt="早期挑战 2积分"></a>
       <a href="" class="bubble-link2"><img src="~assets/img/home/give-bubble@2x.png" alt="赠送气泡 2积分"></a>
       <a href="" class="bubble-link3"><img src="~assets/img/home/step-bubble@2x.png" alt="步数奖励 2积分"></a>
-      <!-- <button class="bubble-btn1"><img src="~assets/img/home/challenge-bubble2x.png" alt="早期挑战 2积分"></button>
-      <button class="bubble-btn2"><img src="~assets/img/home/give-bubble@2x.png" alt="赠送气泡 2积分"></button>
-      <button class="bubble-btn3"><img src="~assets/img/home/step-bubble@2x.png" alt="步数奖励 2积分"></button> -->
     </div>
     <div class="side-link">
       <a href="" class="ranking"><img src="~assets/img/home/ranking@2x.png" alt="排行榜"></a>
@@ -25,7 +22,11 @@
 
 <script>
 export default {
-
+  computed: {
+    totalPoint() {
+      return this.$store.state.totalPoint
+    }
+  }
 }
 </script>
 

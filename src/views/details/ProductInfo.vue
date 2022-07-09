@@ -3,7 +3,7 @@
     <p class="name">{{ product.name }}</p>
     <div class="info">
       <img src="~assets/img/details/star@2x.png" alt="">
-      <p class="point">1599</p>
+      <p class="point">{{productPoint}}</p>
       <del class="price">￥{{ product.price }}</del>
       <p class="rest-count">剩余&nbsp;{{ product.rescount }}&nbsp;个</p>
     </div>
@@ -12,6 +12,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      productPoint: 1599,
+    }
+  },
   props: {
     product: Object
   }

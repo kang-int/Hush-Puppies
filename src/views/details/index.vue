@@ -1,9 +1,18 @@
 <template>
   <top-title></top-title>
   <swiper :banners="banners"></swiper>
-  <product-info v-if="detailObj" :product="detailObj" class="product-info"></product-info>
+  <product-info
+    v-if="detailObj"
+    :product="detailObj"
+    class="product-info"
+    ref="productInfo"
+  ></product-info>
   <gift-detail v-if="detailObj" :product="detailObj" class="detail"></gift-detail>
-  <detail-tab-bar></detail-tab-bar>
+  <detail-tab-bar @exchange="onExchange"></detail-tab-bar>
+  <div id="mask" v-if="isMaskShow">
+    <popup-success @cancel="isMaskShow = !isMaskShow" v-if="isPopupSuccessShow"></popup-success>
+    <popup-fail @cancel="isMaskShow = !isMaskShow" v-if="isPopupFailShow"></popup-fail>
+  </div>
 </template>
 
 <script>
@@ -12,12 +21,18 @@ import Swiper from 'components/swiper/Swiper.vue'
 import ProductInfo from './ProductInfo.vue'
 import GiftDetail from './GiftDetail.vue'
 import DetailTabBar from './DetailTabBar.vue'
+import PopupSuccess from './PopupSuccess.vue'
+import PopupFail from './PopupFail.vue'
 import { request } from 'network/request.js'
+
 export default {
   data() {
     return {
       banners: [],
-      detailObj: null
+      detailObj: null,
+      isMaskShow: false,
+      isPopupSuccessShow: false,
+      isPopupFailShow: false,
     }
   },
   components: {
@@ -25,7 +40,27 @@ export default {
     Swiper,
     ProductInfo,
     GiftDetail,
-    DetailTabBar
+    DetailTabBar,
+    PopupSuccess,
+    PopupFail,
+  },
+  methods: {
+    onExchange() {
+      this.isMaskShow = !this.isMaskShow
+      let totalPoint = this.$store.state.totalPoint
+      let productPoint = this.$refs.productInfo.productPoint
+      if (totalPoint >= productPoint) {
+        this.isPopupSuccessShow = true
+        this.isPopupFailShow = false
+        this.$store.commit({
+          type: 'updatePoint',
+          productPoint
+        })
+      } else {
+        this.isPopupSuccessShow = false
+        this.isPopupFailShow = true
+      }
+    }
   },
   created() {
     request({
@@ -33,7 +68,6 @@ export default {
     })
     .then(res => {
       this.detailObj = res.data
-      console.log(this.detailObj);
       return res.data
     })
     .then(data => {
@@ -48,8 +82,6 @@ export default {
       }
       this.banners = arr
     })
-
-
   }
 }
 </script>
@@ -58,6 +90,7 @@ export default {
 .swiper {
   width: 375px;
   height: 375px;
+  z-index: 0;
 }
 .swiper :deep(img) {
   width: 375px;
@@ -72,5 +105,13 @@ export default {
   background-color: #fff;
   margin-top: 10px;
   margin-bottom: 49px;
+}
+#mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
 }
 </style>
