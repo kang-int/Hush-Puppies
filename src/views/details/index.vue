@@ -11,7 +11,7 @@
   <detail-tab-bar @exchange="onExchange"></detail-tab-bar>
   <div id="mask" v-if="isMaskShow">
     <popup-success @cancel="isMaskShow = !isMaskShow" v-if="isPopupSuccessShow"></popup-success>
-    <popup-fail @cancel="isMaskShow = !isMaskShow" v-if="isPopupFailShow"></popup-fail>
+    <popup-fail @cancel="isMaskShow = !isMaskShow" v-else></popup-fail>
   </div>
 </template>
 
@@ -32,7 +32,6 @@ export default {
       detailObj: null,
       isMaskShow: false,
       isPopupSuccessShow: false,
-      isPopupFailShow: false,
     }
   },
   components: {
@@ -51,14 +50,10 @@ export default {
       let productPoint = this.$refs.productInfo.productPoint
       if (totalPoint >= productPoint) {
         this.isPopupSuccessShow = true
-        this.isPopupFailShow = false
         this.$store.commit({
           type: 'updatePoint',
           productPoint
         })
-      } else {
-        this.isPopupSuccessShow = false
-        this.isPopupFailShow = true
       }
     }
   },
