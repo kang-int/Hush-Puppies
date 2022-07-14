@@ -62,7 +62,6 @@ export default {
 .nav-bar {
   display: flex;
   width: 287px;
-  height: 85px;
   justify-content: space-between;
   margin: 0 auto;
 }

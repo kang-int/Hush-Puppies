@@ -1,17 +1,20 @@
 <template>
   <top-title>积分商城</top-title>
-  <swiper :banners="banners"></swiper>
+    <Carousel
+      :banners="banners"
+      height="173px"
+      trigger="click"
+      arrow="never"
+    ></Carousel>
   <nav-bar @toggle-comp="showComp"></nav-bar>
-  <div class="placeholder">
     <component :is="currentTab"></component>
-  </div>
   <main-tab-bar></main-tab-bar>
   <div class="bottom-placeholder"></div>
 </template>
 
 <script>
 import TopTitle from 'components/TopTitle'
-import Swiper from 'components/swiper/Swiper'
+import Carousel from 'components/Carousel.vue'
 import NavBar from './NavBar'
 import All from './All'
 import Bags from './Bags'
@@ -29,7 +32,7 @@ export default {
   },
   components: {
     TopTitle,
-    Swiper,
+    Carousel,
     NavBar,
     All,
     Bags,
@@ -47,28 +50,28 @@ export default {
     request({
       url: '/home_banner.json'
     }).then(res => {
+      let arr = []
       let bannerObj = {
         url: res.data[0].url,
         img: res.data[0].img
       }
       for (let i = 0; i < 5; i++) {
-        this.banners.push(bannerObj)
+        arr.push(bannerObj)
       }
+      this.banners = arr
     })
   }
 }
 </script>
 
 <style scoped>
-.swiper {
+.el-carousel {
   width: 345px;
-  height: 173px;
   border-radius: 5px;
   margin: 0 auto;
   margin-top: 15px;
 }
-
-.swiper :deep(img) {
+.el-carousel :deep(img) {
   width: 345px;
   height: 173px;
 }

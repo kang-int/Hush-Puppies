@@ -2,14 +2,19 @@
   <div class="main">
     <Reward></Reward>
     <link-menu></link-menu>
-    <swiper :banners="banners"></swiper>
+    <Carousel
+      :banners="banners"
+      height="120px"
+      trigger="click"
+      arrow="never"
+    ></Carousel>
   </div>
 </template>
 
 <script>
 import Reward from 'components/home/Reward'
 import LinkMenu from './LinkMenu'
-import Swiper from 'components/swiper/Swiper'
+import Carousel from 'components/Carousel.vue'
 import { request } from 'network/request.js'
 export default {
   data() {
@@ -20,7 +25,7 @@ export default {
   components: {
     Reward,
     LinkMenu,
-    Swiper
+    Carousel,
   },
   created() {
     request({
@@ -46,15 +51,14 @@ export default {
   padding-bottom: 27px;
 }
 
-.swiper {
+.el-carousel {
   width: 345px;
-  height: 120px;
   border-radius: 10px;
   margin: 0 auto;
   margin-top: 12px;
 }
 
-.swiper :deep(img) {
+.el-carousel :deep(img) {
   width: 345px;
   height: 120px;
 }

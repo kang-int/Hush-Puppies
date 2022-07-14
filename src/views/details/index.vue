@@ -1,6 +1,11 @@
 <template>
   <top-title></top-title>
-  <swiper :banners="banners"></swiper>
+    <Carousel
+      :banners="banners"
+      height="375px"
+      trigger="click"
+      arrow="never"
+    ></Carousel>
   <product-info
     v-if="detailObj"
     :product="detailObj"
@@ -17,7 +22,7 @@
 
 <script>
 import TopTitle from 'components/TopTitle.vue'
-import Swiper from 'components/swiper/Swiper.vue'
+import Carousel from 'components/Carousel.vue'
 import ProductInfo from './ProductInfo.vue'
 import GiftDetail from './GiftDetail.vue'
 import DetailTabBar from './DetailTabBar.vue'
@@ -36,7 +41,7 @@ export default {
   },
   components: {
     TopTitle,
-    Swiper,
+    Carousel,
     ProductInfo,
     GiftDetail,
     DetailTabBar,
@@ -82,12 +87,11 @@ export default {
 </script>
 
 <style scoped>
-.swiper {
-  width: 375px;
+.el-carousel {
   height: 375px;
   z-index: 0;
 }
-.swiper :deep(img) {
+.el-carousel :deep(img) {
   width: 375px;
   height: 375px;
 }

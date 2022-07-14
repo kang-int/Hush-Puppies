@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {decodeEmoji, parseHTML} from '@/helper/index.js'
+import {parseHTML} from '@/helper/index.js'
 export default {
   props: {
     product: Object,
