@@ -39,6 +39,9 @@ export default {
       isPopupSuccessShow: false,
     }
   },
+  props: {
+    id: String
+  },
   components: {
     TopTitle,
     Carousel,
@@ -64,7 +67,7 @@ export default {
   },
   created() {
     request({
-      url: `https://hps-data.blankpage.site/wxapp/hush-uat/product_${this.$route.params.id}.json`
+      url: `/product_${this.id}.json`
     })
     .then(res => {
       this.detailObj = res.data

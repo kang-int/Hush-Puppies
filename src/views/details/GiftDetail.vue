@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {parseHTML} from '@/helper/index.js'
+import {parseHTML} from '@/utils/index.js'
 export default {
   props: {
     product: Object,
