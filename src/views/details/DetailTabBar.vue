@@ -10,16 +10,13 @@
       <img src="~assets/img/details/share-icon@2x.png" alt="">
       <p>分享</p>
     </div>
-    <Button class="detail-button" @click="$emit('exchange')">立即兑换</Button>
+    <button class="detail-button" @click="$emit('exchange')">立即兑换</button>
   </div>
 </template>
 
 <script>
-import Button from 'components/Button.vue'
 export default {
-  components: {
-    Button
-  }
+
 }
 </script>
 
@@ -37,22 +34,30 @@ export default {
   padding-left: 11px;
   padding-right: 15px;
 }
+
 .tab-bar-item {
   padding: 0 11px;
 }
+
 .tab-bar-item img {
   width: 25px;
   height: 25px;
   vertical-align: bottom;
 }
+
 .tab-bar-item p {
   font-size: 10px;
   color: #CB453C;
   margin-top: 3px;
 }
+
 .detail-button {
   width: 159px;
   height: 40px;
   margin-left: auto;
+  background-color: #CB453C;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 1000px;
 }
 </style>

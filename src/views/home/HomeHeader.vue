@@ -2,21 +2,17 @@
   <div class="header">
     <p class="header-title">暇步士微信步数</p>
     <Canvas></Canvas>
-    <white-building class="building"></white-building>
-    <dark-building class="building"></dark-building>
-    <road></road>
+    <div class="building pale-building"></div>
+    <div class="building dark-building"></div>
+    <div class="road"></div>
     <aside-info></aside-info>
     <div class="riding"></div>
-
   </div>
 </template>
 
 <script>
 import Canvas from 'components/home/Canvas'
 import AsideInfo from 'components/home/AsideInfo'
-import WhiteBuilding from 'components/home/WhiteBuilding'
-import DarkBuilding from 'components/home/DarkBuilding'
-import Road from 'components/home/Road'
 
 export default {
   data() {
@@ -27,10 +23,7 @@ export default {
   components: {
     Canvas,
     AsideInfo,
-    WhiteBuilding,
-    DarkBuilding,
-    Road
-  }
+}
 }
 </script>
 
@@ -61,6 +54,50 @@ export default {
   position: absolute;
   bottom: 125px;
   left: 0;
+}
+
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -1145px 0;
+  }
+}
+
+.pale-building {
+  left: 50%;
+  background: url('assets/img/home/rear-building@2x.png') repeat-x;
+  background-size: contain;
+  animation: slide 100s linear infinite;
+}
+
+.dark-building {
+  background: url('assets/img/home/front-building@2x.png') repeat-x;
+  background-size: contain;
+  animation: slide 60s linear infinite;
+}
+
+@keyframes road-slide {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -1145px 0;
+  }
+}
+
+.road {
+  width: 1746px;
+  height: 144px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: url('assets/img/home/road@2x.png');
+  background-size: contain;
+  animation: road-slide 60s linear infinite;
 }
 
 .riding {

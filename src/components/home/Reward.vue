@@ -5,17 +5,13 @@
       <a href="">我的好友 &gt;</a>
     </div>
     <p class="reward-text2">今日已邀请 3 人 当前加成 +3%</p>
-    <Button class="reward-btn">每邀请1人 奖励5个积分</Button>
+    <button class="reward-btn">每邀请1人 奖励5个积分</button>
   </div>
-
 </template>
 
 <script>
-import Button from 'components/Button'
 export default {
-  components: {
-    Button
-  }
+
 }
 </script>
 
@@ -66,5 +62,9 @@ export default {
   height: 34px;
   font-size: 13px;
   box-shadow: 0px 10px 10px rgba(196, 32, 32, 0.2);
+  background-color: #CB453C;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 1000px;
 }
 </style>

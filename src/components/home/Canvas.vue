@@ -5,18 +5,14 @@
       <p class="canvas-text1">今日步数</p>
       <strong>19877</strong>
       <p class="canvas-text2">满1000可兑换</p>
-      <Button class="canvas-btn">点击兑换</Button>
+      <button class="canvas-btn">点击兑换</button>
       <p class="canvas-text3">每天24点清零</p>
     </div>
   </div>
 </template>
 
 <script>
-import Button from 'components/Button'
 export default {
-  components: {
-    Button
-  },
   mounted() {
     let canvas = document.querySelector('#canvas')
     let c = canvas.getContext('2d')
@@ -106,5 +102,10 @@ export default {
   width: 93px;
   height: 29px;
   margin: 5px 0;
+  background-color: #CB453C;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 1000px;
+  box-shadow: 0px 20px 20px rgba(196,32,32,0.16);
 }
 </style>
