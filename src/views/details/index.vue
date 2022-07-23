@@ -63,6 +63,8 @@ export default {
           productPoint
         })
       }
+      console.log(totalPoint);
+      console.log(productPoint);
     }
   },
   created() {

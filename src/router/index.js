@@ -12,18 +12,22 @@ const routes = [
   },
   {
     path: '/home',
+    name: 'home-page',
     component: Home
   },
   {
     path: '/mall',
+    name: 'point-mall',
     component: PointMall
   },
   {
     path: '/profile',
+    name: 'profile',
     component: Profile
   },
   {
     path: '/product/:id',
+    name: 'details',
     component: Details,
     props: true
   }

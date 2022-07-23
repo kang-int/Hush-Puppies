@@ -1,6 +1,6 @@
 <template>
   <div class="tab-bar">
-    <router-link to="/home">
+    <router-link :to="{name: 'home-page'}">
       <div class="tab-bar-item">
         <img src="~assets/img/details/home-icon@2x.png" alt="">
         <p>首页</p>
