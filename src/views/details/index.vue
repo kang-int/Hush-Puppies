@@ -1,34 +1,41 @@
 <template>
   <top-title></top-title>
-    <Carousel
-      :banners="banners"
-      height="375px"
-      trigger="click"
-      arrow="never"
-    ></Carousel>
+  <Carousel
+    :banners="banners"
+    height="375px"
+    trigger="click"
+    arrow="never"
+  ></Carousel>
   <product-info
     v-if="detailObj"
     :product="detailObj"
     class="product-info"
     ref="productInfo"
   ></product-info>
-  <gift-detail v-if="detailObj" :product="detailObj" class="detail"></gift-detail>
+  <gift-detail
+    v-if="detailObj"
+    :product="detailObj"
+    class="detail"
+  ></gift-detail>
   <detail-tab-bar @exchange="onExchange"></detail-tab-bar>
   <div id="mask" v-if="isMaskShow">
-    <popup-success @cancel="isMaskShow = !isMaskShow" v-if="isPopupSuccessShow"></popup-success>
+    <popup-success
+      @cancel="isMaskShow = !isMaskShow"
+      v-if="isPopupSuccessShow"
+    ></popup-success>
     <popup-fail @cancel="isMaskShow = !isMaskShow" v-else></popup-fail>
   </div>
 </template>
 
 <script>
-import TopTitle from 'components/TopTitle.vue'
-import Carousel from 'components/Carousel.vue'
-import ProductInfo from './ProductInfo.vue'
-import GiftDetail from './GiftDetail.vue'
-import DetailTabBar from './DetailTabBar.vue'
-import PopupSuccess from './PopupSuccess.vue'
-import PopupFail from './PopupFail.vue'
-import { request } from 'network/request.js'
+import TopTitle from "components/TopTitle.vue";
+import Carousel from "components/Carousel.vue";
+import ProductInfo from "./ProductInfo.vue";
+import GiftDetail from "./GiftDetail.vue";
+import DetailTabBar from "./DetailTabBar.vue";
+import PopupSuccess from "./PopupSuccess.vue";
+import PopupFail from "./PopupFail.vue";
+import ProductService from "network/ProductService";
 
 export default {
   data() {
@@ -37,10 +44,10 @@ export default {
       detailObj: null,
       isMaskShow: false,
       isPopupSuccessShow: false,
-    }
+    };
   },
   props: {
-    id: String
+    id: String,
   },
   components: {
     TopTitle,
@@ -53,42 +60,40 @@ export default {
   },
   methods: {
     onExchange() {
-      this.isMaskShow = !this.isMaskShow
-      let totalPoint = this.$store.state.totalPoint
-      let productPoint = this.$refs.productInfo.productPoint
+      this.isMaskShow = !this.isMaskShow;
+      let totalPoint = this.$store.state.totalPoint;
+      let productPoint = this.$refs.productInfo.productPoint;
       if (totalPoint >= productPoint) {
-        this.isPopupSuccessShow = true
+        this.isPopupSuccessShow = true;
         this.$store.commit({
-          type: 'updatePoint',
-          productPoint
-        })
+          type: "updatePoint",
+          productPoint,
+        });
       }
       console.log(totalPoint);
       console.log(productPoint);
-    }
+    },
   },
   created() {
-    request({
-      url: `/product_${this.id}.json`
-    })
-    .then(res => {
-      this.detailObj = res.data
-      return res.data
-    })
-    .then(data => {
-      // 轮播图
-      let arr = []
-      let bannerObj = {
-        url: '',
-        img: data.thumbUrl
-      }
-      for (let i = 0; i < 5; i++) {
-        arr.push(bannerObj)
-      }
-      this.banners = arr
-    })
-  }
-}
+    ProductService.getProductDetail(this.id)
+      .then((res) => {
+        this.detailObj = res.data;
+        return res.data;
+      })
+      .then((data) => {
+        // 轮播图
+        let arr = [];
+        let bannerObj = {
+          url: "",
+          img: data.thumbUrl,
+        };
+        for (let i = 0; i < 5; i++) {
+          arr.push(bannerObj);
+        }
+        this.banners = arr;
+      });
+  },
+};
 </script>
 
 <style scoped>

@@ -12,15 +12,16 @@
 </template>
 
 <script>
-import Reward from 'components/home/Reward'
-import LinkMenu from './LinkMenu'
-import Carousel from 'components/Carousel.vue'
-import { request } from 'network/request.js'
+import Reward from "components/home/Reward";
+import LinkMenu from "./LinkMenu";
+import Carousel from "components/Carousel.vue";
+import ProductService from "network/ProductService";
+
 export default {
   data() {
     return {
-      banners: []
-    }
+      banners: [],
+    };
   },
   components: {
     Reward,
@@ -28,21 +29,19 @@ export default {
     Carousel,
   },
   created() {
-    request({
-      url: '/home_banner.json'
-    }).then(res => {
-      let arr = []
+    ProductService.getBanner().then((res) => {
+      let arr = [];
       let bannerObj = {
         url: res.data[0].url,
-        img: res.data[0].img
-      }
+        img: res.data[0].img,
+      };
       for (let i = 0; i < 5; i++) {
-        arr.push(bannerObj)
+        arr.push(bannerObj);
       }
-      this.banners = arr
-    })
-  }
-}
+      this.banners = arr;
+    });
+  },
+};
 </script>
 
 <style scoped>

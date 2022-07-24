@@ -1,13 +1,13 @@
 <template>
   <top-title>积分商城</top-title>
-    <Carousel
-      :banners="banners"
-      height="173px"
-      trigger="click"
-      arrow="never"
-    ></Carousel>
+  <Carousel
+    :banners="banners"
+    height="173px"
+    trigger="click"
+    arrow="never"
+  ></Carousel>
   <nav-bar @toggle-comp="showComp"></nav-bar>
-    <component :is="currentTab"></component>
+  <component :is="currentTab"></component>
   <main-tab-bar></main-tab-bar>
   <div class="bottom-placeholder"></div>
 </template>
@@ -22,7 +22,7 @@ import Housewares from './Housewares'
 import Shoes from './Shoes'
 import Others from './Others'
 import MainTabBar from '@/components/home/MainTabBar.vue'
-import { request } from 'network/request.js'
+import ProductService from 'network/ProductService'
 export default {
   data() {
     return {
@@ -47,9 +47,7 @@ export default {
     }
   },
   created() {
-    request({
-      url: '/home_banner.json'
-    }).then(res => {
+    ProductService.getBanner().then((res) => {
       let arr = []
       let bannerObj = {
         url: res.data[0].url,
