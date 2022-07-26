@@ -60,5 +60,6 @@ export default {
 .el-carousel :deep(img) {
   width: 345px;
   height: 173px;
+  box-shadow: 1px 10px red;
 }
 </style>
