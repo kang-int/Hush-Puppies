@@ -61,5 +61,6 @@ export default {
   width: 345px;
   height: 173px;
   box-shadow: 1px 10px red;
+  border: 1px solid #000;
 }
 </style>
