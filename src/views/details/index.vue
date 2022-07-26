@@ -28,14 +28,14 @@
 </template>
 
 <script>
-import TopTitle from "components/TopTitle.vue";
-import Carousel from "components/Carousel.vue";
-import ProductInfo from "./ProductInfo.vue";
-import GiftDetail from "./GiftDetail.vue";
-import DetailTabBar from "./DetailTabBar.vue";
-import PopupSuccess from "./PopupSuccess.vue";
-import PopupFail from "./PopupFail.vue";
-import ProductService from "network/ProductService";
+import TopTitle from 'components/TopTitle.vue'
+import Carousel from 'components/Carousel.vue'
+import ProductInfo from './ProductInfo.vue'
+import GiftDetail from './GiftDetail.vue'
+import DetailTabBar from './DetailTabBar.vue'
+import PopupSuccess from './PopupSuccess.vue'
+import PopupFail from './PopupFail.vue'
+import ProductService from 'network/ProductService'
 
 export default {
   data() {
@@ -43,11 +43,11 @@ export default {
       banners: [],
       detailObj: null,
       isMaskShow: false,
-      isPopupSuccessShow: false,
-    };
+      isPopupSuccessShow: false
+    }
   },
   props: {
-    id: String,
+    id: String
   },
   components: {
     TopTitle,
@@ -56,44 +56,45 @@ export default {
     GiftDetail,
     DetailTabBar,
     PopupSuccess,
-    PopupFail,
+    PopupFail
+  },
+  computed: {
+    totalPoint() {
+      return this.$store.state.totalPoint
+    }
   },
   methods: {
     onExchange() {
-      this.isMaskShow = !this.isMaskShow;
-      let totalPoint = this.$store.state.totalPoint;
-      let productPoint = this.$refs.productInfo.productPoint;
-      if (totalPoint >= productPoint) {
-        this.isPopupSuccessShow = true;
-        this.$store.commit({
-          type: "updatePoint",
-          productPoint,
-        });
+      this.isMaskShow = !this.isMaskShow
+      let productPoint = this.$refs.productInfo.productPoint
+      if (this.totalPoint >= productPoint) {
+        this.isPopupSuccessShow = true
+        this.$store.dispatch('consume', productPoint)
+      } else {
+        this.isPopupSuccessShow = false
       }
-      console.log(totalPoint);
-      console.log(productPoint);
-    },
+    }
   },
   created() {
     ProductService.getProductDetail(this.id)
       .then((res) => {
-        this.detailObj = res.data;
-        return res.data;
+        this.detailObj = res.data
+        return res.data
       })
       .then((data) => {
         // 轮播图
-        let arr = [];
+        let arr = []
         let bannerObj = {
-          url: "",
-          img: data.thumbUrl,
-        };
-        for (let i = 0; i < 5; i++) {
-          arr.push(bannerObj);
+          url: '',
+          img: data.thumbUrl
         }
-        this.banners = arr;
-      });
-  },
-};
+        for (let i = 0; i < 5; i++) {
+          arr.push(bannerObj)
+        }
+        this.banners = arr
+      })
+  }
+}
 </script>
 
 <style scoped>

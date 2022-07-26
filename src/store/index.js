@@ -11,11 +11,14 @@ export default createStore({
   },
   // 定义修改状态的方法
   mutations: {
-    updatePoint(state, playload) {
-      state.totalPoint -= playload.productPoint
+    updatePoint(state, productPoint) {
+      state.totalPoint -= productPoint
     }
   },
   actions: {
+    consume({commit}, productPoint) {
+      commit('updatePoint', productPoint)
+    }
   },
   modules: {
   }
