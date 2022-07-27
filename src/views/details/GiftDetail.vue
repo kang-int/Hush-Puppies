@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import {parseHTML} from '@/utils/index.js'
+import { parseHTML } from '@/helpers/index.js'
 export default {
   props: {
-    product: Object,
+    product: Object
   },
   computed: {
     desc() {
@@ -23,7 +23,7 @@ export default {
 .title {
   font-size: 16px;
   font-weight: bold;
-  color: #C06251;
+  color: #c06251;
   padding: 23px 0 23px 20px;
 }
 </style>
