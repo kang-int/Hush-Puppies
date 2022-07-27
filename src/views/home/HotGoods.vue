@@ -14,20 +14,20 @@
 </template>
 
 <script>
-import ProductService from "network/ProductService";
+import ProductService from 'network/ProductService'
 
 export default {
   data() {
     return {
-      goods: [],
-    };
+      goods: []
+    }
   },
   created() {
     ProductService.getHotGoods().then((res) => {
-      this.goods = res.data;
-    });
-  },
-};
+      this.goods = res.data
+    })
+  }
+}
 </script>
 
 <style>

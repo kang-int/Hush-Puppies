@@ -12,36 +12,36 @@
 </template>
 
 <script>
-import Reward from "components/home/Reward";
-import LinkMenu from "./LinkMenu";
-import Carousel from "components/Carousel.vue";
-import ProductService from "network/ProductService";
+import Reward from 'components/home/Reward'
+import LinkMenu from './LinkMenu'
+import Carousel from 'components/Carousel.vue'
+import ProductService from 'network/ProductService'
 
 export default {
   data() {
     return {
-      banners: [],
-    };
+      banners: []
+    }
   },
   components: {
     Reward,
     LinkMenu,
-    Carousel,
+    Carousel
   },
   created() {
     ProductService.getBanner().then((res) => {
-      let arr = [];
+      let arr = []
       let bannerObj = {
         url: res.data[0].url,
-        img: res.data[0].img,
-      };
-      for (let i = 0; i < 5; i++) {
-        arr.push(bannerObj);
+        img: res.data[0].img
       }
-      this.banners = arr;
-    });
-  },
-};
+      for (let i = 0; i < 5; i++) {
+        arr.push(bannerObj)
+      }
+      this.banners = arr
+    })
+  }
+}
 </script>
 
 <style scoped>
@@ -59,6 +59,6 @@ export default {
 
 .el-carousel :deep(img) {
   width: 345px;
-  height: 120px;
+  height: 173px;
 }
 </style>

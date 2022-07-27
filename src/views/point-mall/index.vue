@@ -7,7 +7,9 @@
     arrow="never"
   ></Carousel>
   <nav-bar @toggle-comp="showComp"></nav-bar>
-  <component :is="currentTab"></component>
+  <div class="placeholder">
+    <component :is="currentTab"></component>
+  </div>
   <main-tab-bar></main-tab-bar>
   <div class="bottom-placeholder"></div>
 </template>

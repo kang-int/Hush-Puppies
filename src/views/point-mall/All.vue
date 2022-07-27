@@ -1,28 +1,33 @@
 <template>
   <div class="goods-list">
-    <div class="item" v-for="item in goods">
+    <router-link
+      :to="{ name: 'details', params: { id: item.ID } }"
+      class="item"
+      v-for="item in goods"
+      :key="item.ID"
+    >
       <img :src="item.ThumbUrl" alt="" />
       <p class="goods-name">暇步士商品</p>
       <p class="goods-point">5000积分</p>
-    </div>
+    </router-link>
   </div>
 </template>
 
 <script>
-import ProductService from "network/ProductService"
+import ProductService from 'network/ProductService'
 
 export default {
   data() {
     return {
-      goods: [],
-    };
+      goods: []
+    }
   },
   created() {
     ProductService.getHotGoods().then((res) => {
-      this.goods = res.data;
-    });
-  },
-};
+      this.goods = res.data
+    })
+  }
+}
 </script>
 
 <style>

@@ -1,7 +1,7 @@
 <template>
-  <el-carousel>
+  <el-carousel v-if="banners[0] != null">
     <el-carousel-item v-for="item in banners">
-      <a :href="item.url"><img :src="item.img" alt="轮播图"></a>
+      <a :href="item.url"><img :src="item.img" alt="轮播图" /></a>
     </el-carousel-item>
   </el-carousel>
 </template>
@@ -9,7 +9,7 @@
 <script>
 export default {
   props: {
-    banners: Array,
+    banners: Array
   }
 }
 </script>
