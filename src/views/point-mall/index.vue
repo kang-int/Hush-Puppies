@@ -81,7 +81,7 @@ export default {
 }
 
 .placeholder {
-  height: 776px;
+  height: 260px;
 }
 .bottom-placeholder {
   height: 49px;

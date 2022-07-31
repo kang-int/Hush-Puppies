@@ -2,16 +2,12 @@
   <div class="container">
     <profile-header>
       <template v-slot:photo>
-        <img src="~assets/img/profile/profile-photo@2x.png" alt="">
+        <img src="~assets/img/profile/profile-photo@2x.png" alt="" />
       </template>
-      <template v-slot:name>
-        神经蛙
-      </template>
-      <template v-slot:id>
-        ID:12312312312
-      </template>
+      <template v-slot:name> 神经蛙 </template>
+      <template v-slot:id> ID:12312312312 </template>
       <template v-slot:point>
-        <p>2,3123</p>
+        <p>{{ totalPoint }}</p>
       </template>
     </profile-header>
     <profile-nav class="nav"></profile-nav>
@@ -28,6 +24,17 @@ export default {
     ProfileHeader,
     MainTabBar,
     ProfileNav
+  },
+  computed: {
+    totalPoint() {
+      let num = this.$store.state.totalPoint
+      let pointStr = num
+        .toString()
+        .replace(/\d{1,3}(?=(\d{3})+$)/g, (match) => {
+          return match + ','
+        })
+      return pointStr
+    }
   }
 }
 </script>

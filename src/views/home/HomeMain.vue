@@ -4,7 +4,7 @@
     <link-menu></link-menu>
     <Carousel
       :banners="banners"
-      height="120px"
+      height="173px"
       trigger="click"
       arrow="never"
     ></Carousel>
