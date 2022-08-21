@@ -2,7 +2,7 @@
   <top-title>积分商城</top-title>
   <Carousel
     :banners="banners"
-    height="173px"
+    height="345px"
     trigger="click"
     arrow="never"
   ></Carousel>
@@ -73,7 +73,7 @@ export default {
 }
 .el-carousel :deep(img) {
   width: 345px;
-  height: 173px;
+  height: 345px;
 }
 
 .nav-flex {

@@ -28,12 +28,7 @@ export default {
   computed: {
     totalPoint() {
       let num = this.$store.state.totalPoint
-      let pointStr = num
-        .toString()
-        .replace(/\d{1,3}(?=(\d{3})+$)/g, (match) => {
-          return match + ','
-        })
-      return pointStr
+      return num.toLocaleString()
     }
   }
 }
