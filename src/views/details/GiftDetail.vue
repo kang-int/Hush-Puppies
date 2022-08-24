@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     desc() {
-      return parseHTML(this.product.desc).toString()
+      return parseHTML(this.product.desc)
     }
   }
 }

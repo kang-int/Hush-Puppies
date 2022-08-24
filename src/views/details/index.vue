@@ -1,22 +1,16 @@
 <template>
   <top-title></top-title>
-  <Carousel
-    :banners="banners"
-    height="375px"
-    trigger="click"
-    arrow="never"
-  ></Carousel>
+  <Carousel :banners="banners" height="375px" trigger="click" arrow="never">
+  </Carousel>
   <product-info
     v-if="detailObj"
     :product="detailObj"
     class="product-info"
     ref="productInfo"
-  ></product-info>
-  <gift-detail
-    v-if="detailObj"
-    :product="detailObj"
-    class="detail"
-  ></gift-detail>
+  >
+  </product-info>
+  <gift-detail v-if="detailObj" :product="detailObj" class="detail">
+  </gift-detail>
   <detail-tab-bar @exchange="onExchange"></detail-tab-bar>
   <div id="mask" v-if="isMaskShow">
     <popup-success

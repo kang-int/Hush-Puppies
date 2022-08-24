@@ -1,13 +1,13 @@
 <template>
   <div class="tab-bar">
-    <router-link :to="{name: 'home-page'}">
+    <router-link :to="{ name: 'home-page' }">
       <div class="tab-bar-item">
-        <img src="~assets/img/details/home-icon@2x.png" alt="">
+        <img src="~assets/img/details/home-icon@2x.png" alt="" />
         <p>首页</p>
       </div>
     </router-link>
     <div class="tab-bar-item">
-      <img src="~assets/img/details/share-icon@2x.png" alt="">
+      <img src="~assets/img/details/share-icon@2x.png" alt="" />
       <p>分享</p>
     </div>
     <button class="detail-button" @click="$emit('exchange')">立即兑换</button>
@@ -15,15 +15,15 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style scoped>
 .tab-bar {
   display: flex;
   height: 58px;
+  width: 375px;
+  margin: 0 auto;
   padding-top: 8px;
   background-color: #fff;
   position: fixed;
@@ -47,7 +47,7 @@ export default {
 
 .tab-bar-item p {
   font-size: 10px;
-  color: #CB453C;
+  color: #cb453c;
   margin-top: 3px;
 }
 
@@ -55,7 +55,7 @@ export default {
   width: 159px;
   height: 40px;
   margin-left: auto;
-  background-color: #CB453C;
+  background-color: #cb453c;
   color: #fff;
   font-weight: bold;
   border-radius: 1000px;
