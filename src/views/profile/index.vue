@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import MainTabBar from 'components/home/MainTabBar.vue'
+import MainTabBar from 'views/home/MainTabBar.vue'
 import ProfileHeader from './ProfileHeader'
 import ProfileNav from './ProfileNav.vue'
 export default {

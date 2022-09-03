@@ -23,7 +23,7 @@ import Bags from './Bags'
 import Housewares from './Housewares'
 import Shoes from './Shoes'
 import Others from './Others'
-import MainTabBar from '@/components/home/MainTabBar.vue'
+import MainTabBar from 'views/home/MainTabBar.vue'
 import ProductService from 'network/ProductService'
 export default {
   data() {

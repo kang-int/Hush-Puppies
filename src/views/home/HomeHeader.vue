@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Canvas from 'components/home/Canvas'
-import AsideInfo from 'components/home/AsideInfo'
+import Canvas from '@/views/home/Canvas.vue'
+import AsideInfo from '@/views/home/AsideInfo'
 
 export default {
   data() {

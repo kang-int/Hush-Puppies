@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Reward from 'components/home/Reward'
+import Reward from '@/views/home/Reward'
 import LinkMenu from './LinkMenu'
 import Carousel from 'components/Carousel.vue'
 import ProductService from 'network/ProductService'

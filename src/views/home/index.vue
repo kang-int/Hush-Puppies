@@ -11,7 +11,7 @@
 import HomeHeader from './HomeHeader'
 import HomeMain from './HomeMain'
 import HotGoods from './HotGoods'
-import MainTabBar from 'components/home/MainTabBar.vue'
+import MainTabBar from 'views/home/MainTabBar.vue'
 export default {
   components: {
     HomeHeader,
